@@ -1,0 +1,139 @@
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 4rem; /* 60px*/
+	height: 2rem; /* 34px*/
+}
+.switch-klein {
+	position: relative;
+	display: inline-block;
+	width: 2rem; /* 60px*/
+	height: 1rem; /* 34px*/
+	top: .5rem;
+}
+.switch input,
+.switch-klein input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider,
+.slider-klein {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 1.6rem; /*height: 26px;*/
+	width: 1.6rem; /*width: 26px;*/
+	left:0.2rem; 	/*left: 4px;*/
+	bottom:0.2rem; /*bottom: 4px;*/
+	
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+.slider-klein:before{
+	position: absolute;
+	content: "";
+	height: .8rem; /*height: 26px;*/
+	width: .8rem; /*width: 26px;*/
+	left:0.1rem; 	/*left: 4px;*/
+	bottom:0.1rem; /*bottom: 4px;*/
+	
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider,
+input:checked + .slider-klein{
+	background-color: #2196F3;
+}
+
+input:focus + .slider,
+input:focus + .slider-klein{
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(2rem);
+	-ms-transform: translateX(2rem);
+	transform: translateX(2rem);
+}
+
+input:checked + .slider-klein:before {
+	-webkit-transform: translateX(1rem);
+	-ms-transform: translateX(1rem);
+	transform: translateX(1rem);
+}
+
+/* Rounded sliders */
+.slider.round
+{
+	border-radius: 2.2rem;
+}
+
+.slider-klein.round{
+	border-radius: 1.1rem;
+}
+
+.slider.round:before,
+.slider-klein.round:before {
+	border-radius: 50%;
+}
+
+
+
+
+
+/*!*  CSS für SLIDER   *!*/
+
+/*.slidecontainer {*/
+	/*width: 100%; !* Width of the outside container *!*/
+/*}*/
+
+/*!* The slider itself *!*/
+/*.slider {*/
+	/*-webkit-appearance: none;  !* Override default CSS styles *!*/
+	/*appearance: none;*/
+	/*width: 100%; !* Full-width *!*/
+	/*height: 25px; !* Specified height *!*/
+	/*background: #d3d3d3; !* Grey background *!*/
+	/*outline: none; !* Remove outline *!*/
+	/*opacity: 0.7; !* Set transparency (for mouse-over effects on hover) *!*/
+	/*-webkit-transition: .2s; !* 0.2 seconds transition on hover *!*/
+	/*transition: opacity .2s;*/
+/*}*/
+
+/*!* Mouse-over effects *!*/
+/*.slider:hover {*/
+	/*opacity: 1; !* Fully shown on mouse-over *!*/
+/*}*/
+
+/*!* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) *!*/
+/*.slider::-webkit-slider-thumb {*/
+	/*-webkit-appearance: none; !* Override default look *!*/
+	/*appearance: none;*/
+	/*width: 25px; !* Set a specific slider handle width *!*/
+	/*height: 25px; !* Slider handle height *!*/
+	/*background: #4CAF50; !* Green background *!*/
+	/*cursor: pointer; !* Cursor on hover *!*/
+/*}*/
+
+/*.slider::-moz-range-thumb {*/
+	/*width: 25px; !* Set a specific slider handle width *!*/
+	/*height: 25px; !* Slider handle height *!*/
+	/*background: #4CAF50; !* Green background *!*/
+	/*cursor: pointer; !* Cursor on hover *!*/
+/*}*/
