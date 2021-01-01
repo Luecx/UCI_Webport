@@ -21,7 +21,7 @@
 				<div class="sidepanel-title round-top">
 					<div class="col-12" style="margin-top: 0; ">Settings</div>
 				</div>
-				<div class="row sidepanel-box">
+				<div class="row sidepanel-box round-bottom">
 					<div class="flexpanel col-3 sidepanel-box-type">Depth</div>
 					<div class="flexpanel col-3 sidepanel-box-value"><input title="Depth" value="0"></div>
 					
@@ -49,7 +49,7 @@
 					<div class="flexpanel col-3 sidepanel-box-type">winc</div>
 					<div class="flexpanel col-3 sidepanel-box-value"><input title="winc" value="0"></div>
 					
-					<div class="flexpanel col-3 sidepanel-box-type round-bottom-left">binc</div>
+					<div class="flexpanel col-3 sidepanel-box-type">binc</div>
 					<div class="flexpanel col-3 sidepanel-box-value"><input title="binc" value="0"></div>
 					
 					<div class="flexpanel col-3 sidepanel-box-type ">movestogo</div>
@@ -73,13 +73,13 @@
 			<div class="sidepanel round-all">
 				<div class="sidepanel-title round-top">
 					<div class="col-12" style="margin-top: 0; ">
-						<div class="float-left"><b>+1.0</b>Koivisto</div>
-						<div class="float-right">
+						<div class="float-start"><b>+1.0</b>Koivisto</div>
+						<div class="float-end">
 							<a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
 							   aria-controls="collapseExample">
-								<label class="switch-klein">
+								<label class="switch">
 									<input type="checkbox">
-									<span class="slider-klein round"></span>
+									<span class="switch-slider round"></span>
 								</label>
 							</a>
 						</div>
@@ -125,12 +125,12 @@
     var blackSquareGrey = '#696969'
 
     $('#fenInput').on('onfocusout', function () {
-        board.position(document.getElementById("fenInput").value)
+        game.load(document.getElementById("fenInput").value)
     })
 
     $("#fenInput").on('keyup', function (e) {
         if (e.key === 'Enter' || e.keyCode === 13) {
-            board.position(document.getElementById("fenInput").value)
+			game.load(document.getElementById("fenInput").value)
         }
     });
 
@@ -170,7 +170,7 @@
             promotion: 'q' // NOTE: always promote to a queen for example simplicity
         })
 
-        document.getElementById("fenInput").value = board.fen();
+        document.getElementById("fenInput").value = game.fen();
 
         // illegal move
         if (move === null) return 'snapback'

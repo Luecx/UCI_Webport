@@ -78,6 +78,7 @@ body {
 
 .sidepanel-title {
 	font-weight: 700;
+	background-color: var(--main-color-gray-header);
 	border-bottom: 1px solid var(--main-color-gray-border);
 	line-height: 2.2rem;
 	flex-wrap: wrap;
@@ -98,11 +99,11 @@ body {
 	text-align: center;
 	margin-left: 0;
 	margin-right: 0;
+	background-color: var(--main-color-gray-header);
 }
 
 .sidepanel-box-type {
 	border-right: 1px solid var(--main-color-gray-border);
-	background-color: var(--main-color-gray-header);
 	padding: 0.3rem 0;
 }
 
