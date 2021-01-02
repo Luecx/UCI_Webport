@@ -21,7 +21,7 @@
 				<div class="sidepanel-title round-top">
 					<div class="col-12" style="margin-top: 0; ">Settings</div>
 				</div>
-				<div class="row sidepanel-box round-bottom">
+				<div class="row sidepanel-box">
 					<div class="flexpanel col-3 sidepanel-box-type">Depth</div>
 					<div class="flexpanel col-3 sidepanel-box-value"><input title="Depth" value="0"></div>
 					
@@ -35,9 +35,9 @@
 					<div class="flexpanel col-3 sidepanel-box-value"><input title="Mate" value="0"></div>
 					
 					<div class="flexpanel col-3 sidepanel-box-type">Infinite</div>
-					<div class="flexpanel col-3 sidepanel-box-value"><label class="switch-klein">
+					<div class="flexpanel col-3 sidepanel-box-value"><label class="switch">
 						<input type="checkbox">
-						<span class="slider-klein round"></span>
+						<span class="switch-slider round"></span>
 					</label></div>
 					
 					<div class="flexpanel col-3 sidepanel-box-type">wtime</div>
@@ -53,22 +53,27 @@
 					<div class="flexpanel col-3 sidepanel-box-value"><input title="binc" value="0"></div>
 					
 					<div class="flexpanel col-3 sidepanel-box-type ">movestogo</div>
-					<div class="flexpanel col-3 sidepanel-box-value round-bottom-right"><input title="movestogo" value="0"></div>
-					
-					
-					<!--<div class="horizontal-bar"></div>-->
+					<div class="flexpanel col-3 sidepanel-box-value"><input title="movestogo"
+					                                                        value="0"></div>
+				
+				</div>
+				<div class="horizontal-bar"></div>
+				<div class="engine-output-pv round-bottom" style="height: 50px;">
+					<div id="slider" class="slider"></div>
+				
+				
 				</div>
 			</div>
 		</div>
-
+		
 		<div class="item-main">
 			<div id="myBoard" style="width: 100%"></div>
 			<div class="fenGroup">
-				<div>FEN</div>
+				<label for="fenInput">FEN</label>
 				<input id="fenInput" class="dark-shadow" title="">
 			</div>
 		</div>
-
+		
 		<div class="item-right">
 			<div class="sidepanel round-all">
 				<div class="sidepanel-title round-top">
@@ -107,7 +112,7 @@
 						<div id="engine-output-HF" class="flexpanel col-3 sidepanel-box-value">0</div>
 					</div>
 					<div class="horizontal-bar"></div>
-					<div class="engine-output-pv horizontal-bar round-bottom">Ne4 Bc2</div>
+					<div class="engine-output-pv round-bottom">Ne4 Bc2</div>
 				</div>
 			</div>
 		</div>
@@ -116,21 +121,20 @@
 </div>
 
 
-
 <script>
 
-    var board = null
-    var game = new Chess()
-    var whiteSquareGrey = '#a9a9a9'
-    var blackSquareGrey = '#696969'
+    var board = null;
+    var game = new Chess();
+    var whiteSquareGrey = '#a9a9a9';
+    var blackSquareGrey = '#696969';
 
     $('#fenInput').on('onfocusout', function () {
         game.load(document.getElementById("fenInput").value)
-    })
+    });
 
     $("#fenInput").on('keyup', function (e) {
         if (e.key === 'Enter' || e.keyCode === 13) {
-			game.load(document.getElementById("fenInput").value)
+            game.load(document.getElementById("fenInput").value)
         }
     });
 
@@ -139,9 +143,9 @@
     }
 
     function greySquare(square) {
-        var $square = $('#myBoard .square-' + square)
+        var $square = $('#myBoard .square-' + square);
 
-        var background = whiteSquareGrey
+        var background = whiteSquareGrey;
         if ($square.hasClass('black-3c85d')) {
             background = blackSquareGrey
         }
@@ -151,7 +155,7 @@
 
     function onDragStart(source, piece) {
         // do not pick up pieces if the game is over
-        if (game.game_over()) return false
+        if (game.game_over()) return false;
 
         // or if it's not that side's turn
         if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
@@ -161,14 +165,14 @@
     }
 
     function onDrop(source, target) {
-        removeGreySquares()
+        removeGreySquares();
 
         // see if the move is legal
         var move = game.move({
             from: source,
             to: target,
             promotion: 'q' // NOTE: always promote to a queen for example simplicity
-        })
+        });
 
         document.getElementById("fenInput").value = game.fen();
 
@@ -181,13 +185,13 @@
         var moves = game.moves({
             square: square,
             verbose: true
-        })
+        });
 
         // exit if there are no moves available for this square
-        if (moves.length === 0) return
+        if (moves.length === 0) return;
 
         // highlight the square they moused over
-        greySquare(square)
+        greySquare(square);
 
         // highlight the possible squares for this piece
         for (var i = 0; i < moves.length; i++) {
@@ -212,7 +216,7 @@
         onMouseoutSquare: onMouseoutSquare,
         onMouseoverSquare: onMouseoverSquare,
         onSnapEnd: onSnapEnd
-    }
+    };
     board = Chessboard('myBoard', config)
 </script>
 
