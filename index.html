@@ -4,9 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Title</title>
 	<link rel="stylesheet" href="modules/bootstrap-5/css/bootstrap.css">
+	<link rel="stylesheet" href="modules/bootstrap-5/css/bootstrap-slider.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="modules/chessboard/js/chessboard-1.0.0.min.js"></script>
 	<script src="modules/chessboard/js/chess.js"></script>
+	<script src="engine/Koivisto_4.19.js"></script>
+	<script src="engine/Koivisto_4.19.worker.js"></script>
 	<link rel="stylesheet" href="modules/chessboard/css/chessboard-1.0.0.min.css">
 	<link rel="stylesheet" href="css/switch.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -58,10 +61,14 @@
 				
 				</div>
 				<div class="horizontal-bar"></div>
-				<div class="engine-output-pv round-bottom" style="height: 50px;">
-					<div id="slider" class="slider"></div>
-				
-				
+				<div class="row sidepanel-slider-box round-bottom">
+					<div class="col-3 sidepanel-box-type" style="margin-top: 8px">Slider</div>
+					<div class="col-7 sidepanel-box-value" style="padding: 8px 10px">
+						<input id="ex13"/>
+					</div>
+					<div class="col-2 sidepanel-box-value">
+						<span id="ex13Val" class="badge bg-danger" style="margin-top: 8px">20</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -221,6 +228,7 @@
 </script>
 
 <script src="modules/bootstrap-5/js/bootstrap.bundle.js"></script>
+<script src="modules/bootstrap-5/js/bootstrap-slider.js"></script>
 <script src="js/jquery-ready.js"></script>
 
 

@@ -63,18 +63,18 @@ input:checked + .switch-slider:before {
 
 
 
-#slider label {
-	position: absolute;
-	width: 20px;
-	margin-left: -10px;
-	text-align: center;
-	margin-top: 20px;
-	color: #0b5ed7;
-}
+/*#slider label {*/
+	/*position: absolute;*/
+	/*width: 20px;*/
+	/*margin-left: -10px;*/
+	/*text-align: center;*/
+	/*margin-top: 20px;*/
+	/*color: #0b5ed7;*/
+/*}*/
 
 
-#slider {
-	width: 50%;
-	margin: 2em auto;
-	background: red;
-}
+/*#slider {*/
+	/*width: 50%;*/
+	/*margin: 2em auto;*/
+	/*background: red;*/
+/*}*/

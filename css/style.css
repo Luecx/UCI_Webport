@@ -95,7 +95,8 @@ body {
 	padding-right: .7rem;
 }
 
-.sidepanel-box {
+.sidepanel-box,
+.sidepanel-slider-box{
 	text-align: center;
 	margin-left: 0;
 	margin-right: 0;
